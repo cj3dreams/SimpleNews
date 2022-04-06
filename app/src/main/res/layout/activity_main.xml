@@ -4,25 +4,59 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.ui.MainActivity">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:elevation="5dp"
+        android:minHeight="83dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/bebasneue_book"
+            android:maxLength="7"
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:fontFamily="@font/bebasneue_bold_t"
+            android:text="@string/news"
+            android:textColor="@color/black"
+            android:textSize="30sp" />
+
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/frgView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/bottom_nav_menu"/>
+        android:layout_above="@+id/bottom_nav_menu"
+        android:layout_below="@+id/toolbar" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
-        app:labelVisibilityMode="selected"
-        app:itemIconSize="32dp"
-        app:itemPaddingTop="16dp"
-        app:itemPaddingBottom="16dp"
-        app:menu="@menu/nav_menu"
         android:id="@+id/bottom_nav_menu"
         android:layout_width="match_parent"
         android:layout_height="83dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:elevation="10dp"
+        app:elevation="10dp"
+        app:itemHorizontalTranslationEnabled="true"
+        app:itemIconSize="32dp"
         app:itemIconTint="@drawable/bottom_nav_icon_color_selector"
+        app:itemPaddingBottom="16dp"
+        app:itemPaddingTop="16dp"
+        app:itemTextAppearanceActive="@style/Widget.BottomNavigationView"
+        app:itemTextAppearanceInactive="@style/Widget.BottomNavigationView"
         app:itemTextColor="@drawable/bottom_nav_icon_color_selector"
-        android:layout_alignParentBottom="true" />
+        app:labelVisibilityMode="selected"
+        app:menu="@menu/nav_menu" />
 
 </RelativeLayout>

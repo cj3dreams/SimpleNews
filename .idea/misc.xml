@@ -6,10 +6,15 @@
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_favorites.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_home.xml" value="0.21481481481481482" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_news_colored.xml" value="0.2153846153846154" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_others.xml" value="0.21481481481481482" />
-        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/font/bebasneue_bold_t.xml" value="0.22923076923076924" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/font/fonts.xml" value="0.22923076923076924" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/activity_main.xml" value="0.21" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_favorites.xml" value="0.20260416666666667" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_home.xml" value="0.20260416666666667" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_others.xml" value="0.18854166666666666" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/menu/nav_menu.xml" value="0.20260416666666667" />
       </map>
     </option>
