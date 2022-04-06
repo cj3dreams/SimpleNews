@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Simple News</string>
+    <string name="home">Главная</string>
+    <string name="favorites">Избранное</string>
+    <string name="others">Прочее</string>
+</resources>
