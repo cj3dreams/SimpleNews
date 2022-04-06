@@ -3,8 +3,13 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.21481481481481482" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_favorites.xml" value="0.21481481481481482" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_home.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_news_colored.xml" value="0.2153846153846154" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_others.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/activity_main.xml" value="0.18854166666666666" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_home.xml" value="0.20260416666666667" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/menu/nav_menu.xml" value="0.20260416666666667" />
       </map>
     </option>

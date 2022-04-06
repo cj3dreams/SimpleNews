@@ -2,6 +2,16 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/mainHome"
-        android:icon="@android:drawable/ic_menu_view"
+        android:icon="@drawable/ic_home"
         android:title="@string/home" />
+
+    <item
+        android:id="@+id/favorites"
+        android:icon="@drawable/ic_favorites"
+        android:title="@string/favorites"/>
+
+    <item
+        android:id="@+id/others"
+        android:icon="@drawable/ic_others"
+        android:title="@string/others"/>
 </menu>
