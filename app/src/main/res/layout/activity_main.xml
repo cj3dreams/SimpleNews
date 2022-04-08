@@ -14,22 +14,43 @@
         android:elevation="5dp"
         android:minHeight="83dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/bebasneue_book"
-            android:maxLength="7"
-            android:text="@string/app_name"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
+        <Button
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="16dp"
+            android:background="?attr/homeAsUpIndicator"
+            android:clickable="true"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:gravity="center"
+            android:visibility="gone" />
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:fontFamily="@font/bebasneue_bold_t"
-            android:text="@string/news"
-            android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:layout_height="83dp"
+            android:gravity="center">
+
+            <TextView
+                android:id="@+id/simple"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:fontFamily="@font/bebasneue_book"
+                android:gravity="center"
+                android:maxLength="7"
+                android:text="@string/app_name"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_toEndOf="@+id/simple"
+                android:fontFamily="@font/bebasneue_bold_t"
+                android:gravity="center"
+                android:text="@string/news"
+                android:textColor="@color/black"
+                android:textSize="30sp" />
+        </RelativeLayout>
 
     </androidx.appcompat.widget.Toolbar>
 

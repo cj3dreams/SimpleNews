@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="355dp"
+    android:layout_marginLeft="10dp"
+    android:layout_marginTop="3dp"
+    android:layout_marginRight="10dp"
+    android:clickable="true"
+    android:focusable="true"
+    android:foreground="?android:selectableItemBackgroundBorderless"
+    app:cardCornerRadius="8dp"
+    app:cardPreventCornerOverlap="true"
+    app:cardUseCompatPadding="true"
+    app:contentPaddingBottom="0dp"
+    card_view:cardCornerRadius="8dp"
+    card_view:cardElevation="@dimen/cardview_default_elevation">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/itemImgRel"
+            android:layout_width="match_parent"
+            android:layout_height="220dp">
+
+            <ImageView
+                android:id="@+id/itemImg"
+                android:layout_width="match_parent"
+                android:layout_height="220dp"
+                android:contentDescription="@string/app_name"
+                android:scaleType="centerCrop"
+                android:src="@drawable/ic_news_colored" />
+
+            <ImageView
+                android:id="@+id/itemTime"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginBottom="12.5dp"
+                android:background="@drawable/shadow_for_time_imageview"
+                android:contentDescription="@null"
+                android:elevation="10dp"
+                android:src="@drawable/ic_time" />
+
+            <TextView
+                android:id="@+id/itemTimeTx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="5dp"
+                android:layout_marginBottom="17.5dp"
+                android:layout_toEndOf="@id/itemTime"
+                android:background="#FFF1D8A0"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:text="@string/news"
+                android:textStyle="" />
+
+            <TextView
+                android:id="@+id/itemBrandNameImageViewTx"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_marginTop="15dp"
+                android:background="#FFF1D8A0"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:text="@string/news"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <TextView
+            android:id="@+id/itemNewsTitleTx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemImgRel"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginRight="10dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:text=""
+            android:textColor="@color/black"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/itemNewsDescTx"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/itemNewsTitleTx"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginBottom="20dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:text="" />
+
+        <ImageView
+            android:id="@+id/itemWebIconChangeable"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
+            android:layout_centerInParent="true"
+            android:layout_marginVertical="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="6dp"
+            android:contentDescription="@null"
+            android:src="@drawable/ic_web" />
+
+        <TextView
+            android:id="@+id/itemWebIconNameTx"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginVertical="20dp"
+            android:layout_toEndOf="@id/itemWebIconChangeable"
+            android:fontFamily="@font/bebasneue_regular"
+            android:maxLength="15"
+            android:maxLines="1"
+            android:text="@string/app_name"
+            android:textSize="15sp" />
+
+        <ImageView
+            android:id="@+id/itemFavoriteBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginVertical="16dp"
+            android:layout_toStartOf="@+id/itemShareBtn"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_favorites_empty" />
+
+        <ImageView
+            android:id="@+id/itemShareBtn"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:layout_marginVertical="16dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="22dp"
+            android:clickable="true"
+            android:contentDescription="@null"
+            android:focusable="true"
+            android:foreground="?android:selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_share" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
