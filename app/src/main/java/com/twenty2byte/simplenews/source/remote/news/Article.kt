@@ -1,4 +1,4 @@
-package com.twenty2byte.simplenews.model
+package com.twenty2byte.simplenews.source.remote.news
 
 data class Article(
     val author: Any?,

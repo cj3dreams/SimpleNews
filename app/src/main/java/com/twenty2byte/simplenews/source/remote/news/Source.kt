@@ -1,4 +1,4 @@
-package com.twenty2byte.simplenews.model
+package com.twenty2byte.simplenews.source.remote.news
 
 data class Source(
     val id: Any,

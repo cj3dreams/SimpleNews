@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.twenty2byte.simplenews.R
-import com.twenty2byte.simplenews.model.Article
 import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.view.ui.HomeFragment
 import java.lang.Exception
 
-class HomeRecyclerViewAdapter(val context: Context, private val list: MutableList<NewsEntity?>,
-    val onClickListener: View.OnClickListener): RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
+class HomeRecyclerViewAdapter(private val context: Context, private val list: MutableList<NewsEntity?>,
+    private val onClickListener: View.OnClickListener): RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var img:ImageView = view.findViewById(R.id.itemImg)
@@ -42,13 +41,19 @@ class HomeRecyclerViewAdapter(val context: Context, private val list: MutableLis
     override fun onBindViewHolder(holder: HomeViewHolder, position: Int) {
         val itemData = list[position]
         glide(context, holder.img, itemData?.urlToImage) //mainItemImageView
-        holder.brandNameOnImageViewTx.text = " " + itemData?.sourceName + " "
+
+        if (itemData?.author != "null") holder.brandNameOnImageViewTx.text = " " + itemData?.author + " "
+        else holder.brandNameOnImageViewTx.text = " " + itemData.sourceName + " "
+
         holder.timeTx.text = " " + itemData?.publishedAt?.substring(0,10) + " "
         holder.newsTitleTx.text = itemData?.title
-        holder.newsDescTx.text = itemData?.description
+
+        holder.newsDescTx.text = if (itemData?.description.isNullOrEmpty())
+            context.getString(R.string.ifDescIsEmptyOrNull) else itemData?.description
 
         if(itemData?.urlToImage != null)
-            glide(context, holder.webIconChangeable, itemData.urlToImage) //iconItemImageView
+            glideMini(context, holder.webIconChangeable, "https://" + itemData.url
+                ?.substring(8)?.substringBefore("/") + "/favicon.ico") //iconItemImageView
 
         holder.webIconNameTx.text = itemData?.sourceName
 
@@ -73,7 +78,16 @@ class HomeRecyclerViewAdapter(val context: Context, private val list: MutableLis
 
     private fun glide(context: Context?, imageView: ImageView, urlToImage: String?) {
         context?.let {
-            Glide.with(it).load(urlToImage).diskCacheStrategy(DiskCacheStrategy.DATA).into(imageView)
+            Glide.with(it).load(urlToImage)
+                .thumbnail(
+                    Glide.with(it).load(R.drawable.ic_launcher_foreground))
+                .diskCacheStrategy(DiskCacheStrategy.DATA).dontAnimate().into(imageView)
+        }
+    }
+    private fun glideMini(context: Context?, imageView: ImageView, urlToImage: String?) {
+       context?.let {
+            Glide.with(it).load(urlToImage).diskCacheStrategy(DiskCacheStrategy.DATA)
+                .error(R.drawable.ic_web).into(imageView)
         }
     }
 }

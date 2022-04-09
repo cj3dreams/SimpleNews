@@ -4,5 +4,6 @@
     <string name="favorites">Favorites</string>
     <string name="others">Others</string>
     <string name="news">News</string>
+    <string name="ifDescIsEmptyOrNull">For more information, click on the news</string>
 
 </resources>

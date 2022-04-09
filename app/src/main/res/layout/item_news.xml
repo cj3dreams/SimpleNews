@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:card_view="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
-    android:layout_height="355dp"
+    android:layout_height="wrap_content"
     android:layout_marginLeft="10dp"
     android:layout_marginTop="3dp"
     android:layout_marginRight="10dp"
@@ -69,6 +69,9 @@
                 android:background="#FFF1D8A0"
                 android:elevation="10dp"
                 android:gravity="center"
+                android:maxLines="1"
+                android:maxLength="30"
+                android:ellipsize="end"
                 android:text="@string/news"
                 android:textStyle="bold" />
 
@@ -84,7 +87,6 @@
             android:layout_marginRight="10dp"
             android:ellipsize="end"
             android:maxLines="3"
-            android:text=""
             android:textColor="@color/black"
             android:textStyle="bold" />
 
@@ -98,16 +100,14 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="20dp"
             android:ellipsize="end"
-            android:maxLines="2"
-            android:text="" />
+            android:maxLines="2" />
 
         <ImageView
+            android:layout_below="@+id/itemNewsDescTx"
             android:id="@+id/itemWebIconChangeable"
             android:layout_width="16dp"
             android:layout_height="16dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentBottom="true"
-            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
             android:layout_marginVertical="20dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="6dp"
@@ -118,20 +118,19 @@
             android:id="@+id/itemWebIconNameTx"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
+            android:layout_below="@+id/itemNewsDescTx"
             android:layout_marginVertical="20dp"
             android:layout_toEndOf="@id/itemWebIconChangeable"
             android:fontFamily="@font/bebasneue_regular"
-            android:maxLength="15"
             android:maxLines="1"
             android:text="@string/app_name"
-            android:textSize="15sp" />
+            android:textSize="18sp" />
 
         <ImageView
+            android:layout_below="@+id/itemNewsDescTx"
             android:id="@+id/itemFavoriteBtn"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentBottom="true"
             android:layout_marginVertical="16dp"
             android:layout_toStartOf="@+id/itemShareBtn"
             android:clickable="true"
@@ -141,11 +140,11 @@
             android:src="@drawable/ic_favorites_empty" />
 
         <ImageView
+            android:layout_alignParentEnd="true"
+            android:layout_below="@+id/itemNewsDescTx"
             android:id="@+id/itemShareBtn"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
             android:layout_marginVertical="16dp"
             android:layout_marginStart="16dp"
             android:layout_marginEnd="22dp"

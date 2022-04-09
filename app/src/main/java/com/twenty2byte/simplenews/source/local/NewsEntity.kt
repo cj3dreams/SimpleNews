@@ -6,12 +6,12 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "news", indices =
-    [Index(value = ["title", "description", "isFavorite"], unique = true)])
+    [Index(value = ["title", "description", "isFavorite"], unique = true)] )
 
 data class NewsEntity(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "id")
-    var id: Int?,
+    var id: Int = 0,
     @ColumnInfo(name = "author")
     val author: String?,
     @ColumnInfo(name = "content")
