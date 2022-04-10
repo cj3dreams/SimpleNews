@@ -37,7 +37,6 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
-
         val view = layoutInflater.inflate(R.layout.fragment_favorites, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerViewFav)
@@ -53,7 +52,6 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-
         roomViewModel.getAllFavoriteNewsObservers().observe(viewLifecycleOwner, Observer {
             adapter = NewsRecyclerViewAdapter(requireContext(), it, this)
             recyclerView.adapter = adapter
@@ -82,16 +80,11 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
             R.id.itemNewsClick -> {
                 val tag = v.tag as String
                 val webView = WebViewFragment.getUrl(tag)
-                onDestroy()
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.setCustomAnimations(R.anim.blink, 0)?.replace(R.id.frgView, webView)
-                    ?.addToBackStack("BackFromWebFav")?.commit()
+                    ?.addToBackStack("back")?.commit()
             }
         }
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
     }
 
     override fun onRefresh() {

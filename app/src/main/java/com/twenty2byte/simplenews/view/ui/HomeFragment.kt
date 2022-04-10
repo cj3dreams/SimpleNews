@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
+import android.widget.Toast
 import androidx.core.app.ShareCompat
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
@@ -90,8 +91,14 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
                             adapter = NewsRecyclerViewAdapter(requireContext(), it, this)
                             recyclerView.adapter = adapter
                         })
+                        Toast.makeText(requireContext(), if (resource.isNetworkError == true)
+                            context?.getString(R.string.showingFromCache) else context?.getString(R.string.errorApiToken),
+                            Toast.LENGTH_SHORT).show()
                     }
                     else {
+                        Toast.makeText(requireContext(), if (resource.isNetworkError == true)
+                            context?.getString(R.string.errorInternet) else context?.getString(R.string.errorApiToken),
+                            Toast.LENGTH_SHORT).show()
                         shimmerFrameLayout.stopShimmer()
                         shimmerFrameLayout.visibility = View.GONE
                         recyclerView.visibility = View.GONE

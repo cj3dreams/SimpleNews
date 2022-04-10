@@ -15,4 +15,5 @@
     <string name="pageLoadStarted">Начата загрузка страницы . . .</string>
     <string name="loadingPage">"Загрузка страницы "</string>
     <string name="cj3dreams">от cj3dreams</string>
+    <string name="showingFromCache">Нет сети. Показывается новости из кэша.</string>
 </resources>

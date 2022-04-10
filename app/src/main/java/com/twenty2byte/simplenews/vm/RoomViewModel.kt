@@ -10,11 +10,9 @@ import kotlinx.coroutines.launch
 class RoomViewModel(private val repository: RoomRepository): ViewModel() {
     var newsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
     var favoriteNewsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
-    val favoriteList = mutableListOf<NewsEntity?>()
 
 
-    fun setNewsToDb(newsResponse: MutableList<Article?>) {
-        viewModelScope.launch(Dispatchers.IO) {
+    fun setNewsToDb(newsResponse: MutableList<Article?>) = viewModelScope.launch(Dispatchers.IO) {
             val list = mutableListOf<NewsEntity>()
             newsResponse.forEach {
                 list.add(NewsEntity(0, it?.author.toString(),
@@ -22,9 +20,8 @@ class RoomViewModel(private val repository: RoomRepository): ViewModel() {
                     it?.urlToImage, 0, "ru"))
             }
             repository.insertNewsList(list)
+        newsData.postValue(repository.getAllNews())
         }
-            getAllNewsFromDb()
-    }
 
     fun getAllNewsObservers(): MutableLiveData<MutableList<NewsEntity?>>{
         getAllNewsFromDb()
@@ -39,6 +36,7 @@ class RoomViewModel(private val repository: RoomRepository): ViewModel() {
     fun isDbEmpty(): Boolean = repository.getAllNews()?.size == 0
 
     private fun getFavoritesNews() = viewModelScope.launch(Dispatchers.IO) {
+        val favoriteList = mutableListOf<NewsEntity?>()
         repository.getAllNews()?.forEach {
             if (it?.isFavorite == 1) favoriteList.add(it)
         }
