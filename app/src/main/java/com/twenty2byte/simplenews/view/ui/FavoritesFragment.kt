@@ -9,7 +9,6 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.core.app.ShareCompat
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +18,6 @@ import com.twenty2byte.simplenews.base.RoomViewModelFactory
 import com.twenty2byte.simplenews.repository.RoomRepository
 import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.view.adapter.NewsRecyclerViewAdapter
-import com.twenty2byte.simplenews.vm.NewsViewModel
 import com.twenty2byte.simplenews.vm.RoomViewModel
 
 class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
@@ -52,7 +50,7 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        roomViewModel.getAllFavoriteNewsObservers().observe(viewLifecycleOwner, Observer {
+        roomViewModel.getAllFavoriteNewsObservers().observe(viewLifecycleOwner, {
             adapter = NewsRecyclerViewAdapter(requireContext(), it, this)
             recyclerView.adapter = adapter
             if (it.size == 0) {
@@ -88,7 +86,7 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
     }
 
     override fun onRefresh() {
-        Handler().postDelayed(Runnable {
+        Handler().postDelayed( {
             activity?.supportFragmentManager?.beginTransaction()
                 ?.replace(R.id.frgView, FavoritesFragment())?.commit()
             swipeRefreshLayout.isRefreshing = false

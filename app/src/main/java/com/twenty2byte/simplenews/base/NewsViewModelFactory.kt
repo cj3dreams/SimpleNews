@@ -6,7 +6,7 @@ import com.twenty2byte.simplenews.repository.NewsRepository
 import com.twenty2byte.simplenews.vm.NewsViewModel
 
 @Suppress("UNCHECKED_CAST")
-class ViewModelFactory(private val repository: BaseRepository)
+class NewsViewModelFactory(private val repository: BaseRepository)
     :ViewModelProvider.NewInstanceFactory() {
 
     override fun <T : ViewModel> create(modelClass: Class<T>): T {

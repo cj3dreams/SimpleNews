@@ -1,6 +1,5 @@
 package com.twenty2byte.simplenews.source.remote
 
-import com.google.gson.Gson
 import com.twenty2byte.simplenews.BuildConfig
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor

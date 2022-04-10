@@ -17,7 +17,7 @@ import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.twenty2byte.simplenews.R
 import com.twenty2byte.simplenews.base.RoomViewModelFactory
-import com.twenty2byte.simplenews.base.ViewModelFactory
+import com.twenty2byte.simplenews.base.NewsViewModelFactory
 import com.twenty2byte.simplenews.repository.NewsRepository
 import com.twenty2byte.simplenews.repository.RoomRepository
 import com.twenty2byte.simplenews.source.local.NewsEntity
@@ -38,7 +38,7 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
     private lateinit var roomViewModel: RoomViewModel
     private lateinit var viewModel: NewsViewModel
 
-    private val factory = ViewModelFactory(NewsRepository(RemoteDataSource().buildApi(RestApiRequests::class.java)))
+    private val factory = NewsViewModelFactory(NewsRepository(RemoteDataSource().buildApi(RestApiRequests::class.java)))
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

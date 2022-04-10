@@ -30,6 +30,7 @@ class WebViewFragment : Fragment() {
         activity.backButton.visibility = View.VISIBLE
     }
 
+    @SuppressLint("SetJavaScriptEnabled")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?

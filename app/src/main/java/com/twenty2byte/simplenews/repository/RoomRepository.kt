@@ -1,6 +1,5 @@
 package com.twenty2byte.simplenews.repository
 
-import android.app.Application
 import android.content.Context
 import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.source.local.RoomAppDb
