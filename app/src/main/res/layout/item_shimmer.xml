@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:card_view="http://schemas.android.com/tools"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_marginLeft="10dp"
+android:layout_marginTop="3dp"
+android:layout_marginRight="10dp"
+android:clickable="true"
+android:focusable="true"
+android:foreground="?android:selectableItemBackgroundBorderless"
+app:cardCornerRadius="8dp"
+app:cardPreventCornerOverlap="true"
+app:cardUseCompatPadding="true"
+app:contentPaddingBottom="0dp"
+card_view:cardCornerRadius="8dp"
+card_view:cardElevation="@dimen/cardview_default_elevation">
+
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/itemImgRel"
+        android:layout_width="match_parent"
+        android:layout_height="220dp">
+
+        <ImageView
+
+            android:id="@+id/itemImg"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:contentDescription="@string/app_name"
+            android:scaleType="centerCrop"
+            android:src="#CFCFCF" />
+
+        <ImageView
+            android:id="@+id/itemTime"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginBottom="13.5dp"
+            android:background="@drawable/shadow_for_time_shimmer"
+            android:contentDescription="@null"
+            android:elevation="10dp" />
+
+        <TextView
+            android:layout_toRightOf="@+id/itemTime"
+            android:id="@+id/itemTimeTx"
+            android:layout_width="100dp"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginBottom="17.5dp"
+            android:layout_toEndOf="@id/itemTime"
+            android:background="#e7e7e7"
+            android:elevation="10dp"
+            android:gravity="center" />
+
+        <TextView
+            android:id="@+id/itemBrandNameImageViewTx"
+            android:layout_width="132dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="15dp"
+            android:background="#e7e7e7"
+            android:elevation="5dp"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:maxLength="35"
+            android:maxLines="1"
+            android:minWidth="80dp"
+            android:textStyle="bold" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/itemNewsTitleTx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemImgRel"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:background="#CFCFCF"
+        android:ellipsize="end"
+        android:maxLines="3"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:background="#CFCFCF"
+        android:id="@+id/itemNewsDescTx"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemNewsTitleTx"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginBottom="20dp"
+        android:ellipsize="end"
+        android:maxLines="2" />
+
+    <ImageView
+        android:id="@+id/itemWebIconChangeable"
+        android:layout_width="16dp"
+        android:layout_height="16dp"
+        android:layout_below="@+id/itemNewsDescTx"
+        android:layout_marginVertical="20dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="6dp"
+        android:contentDescription="@null"
+        android:src="#CFCFCF" />
+
+    <TextView
+        android:id="@+id/itemWebIconNameTx"
+        android:layout_width="80dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/itemNewsDescTx"
+        android:layout_marginVertical="20dp"
+        android:layout_toEndOf="@id/itemWebIconChangeable"
+        android:background="#CFCFCF"
+        android:fontFamily="@font/bebasneue_regular"
+        android:maxLines="1" />
+
+    <ImageView
+        android:id="@+id/itemFavoriteBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/itemNewsDescTx"
+        android:layout_marginVertical="16dp"
+        android:layout_toStartOf="@+id/itemShareBtn"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackgroundBorderless"
+        android:padding="3.5dp"
+        android:src="@drawable/ic_favorites_shimmer" />
+
+    <ImageView
+        android:id="@+id/itemShareBtn"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/itemNewsDescTx"
+        android:layout_alignParentEnd="true"
+        android:layout_marginVertical="16dp"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="22.5dp"
+        android:clickable="true"
+        android:contentDescription="@null"
+        android:focusable="true"
+        android:foreground="?android:selectableItemBackgroundBorderless"
+        android:padding="3.5dp"
+        android:src="@drawable/ic_share_shimmer" />
+
+</RelativeLayout>
+</androidx.cardview.widget.CardView>

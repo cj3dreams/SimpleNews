@@ -16,8 +16,8 @@ import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.view.ui.HomeFragment
 import java.lang.Exception
 
-class HomeRecyclerViewAdapter(private val context: Context, private val list: MutableList<NewsEntity?>,
-    private val onClickListener: View.OnClickListener): RecyclerView.Adapter<HomeRecyclerViewAdapter.HomeViewHolder>() {
+class NewsRecyclerViewAdapter(private val context: Context, private val list: MutableList<NewsEntity?>,
+    private val onClickListener: View.OnClickListener): RecyclerView.Adapter<NewsRecyclerViewAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var img:ImageView = view.findViewById(R.id.itemImg)
@@ -42,8 +42,12 @@ class HomeRecyclerViewAdapter(private val context: Context, private val list: Mu
         val itemData = list[position]
         glide(context, holder.img, itemData?.urlToImage) //mainItemImageView
 
-        if (itemData?.author != "null") holder.brandNameOnImageViewTx.text = " " + itemData?.author + " "
-        else holder.brandNameOnImageViewTx.text = " " + itemData.sourceName + " "
+        if (itemData?.author != "null")
+            holder.brandNameOnImageViewTx.text = " " + itemData?.author + " "
+        else holder.brandNameOnImageViewTx.text =
+            if (!itemData.sourceName.isNullOrEmpty())
+                " " + itemData.sourceName + " "
+            else " Simple " + context.getString(R.string.news) + " "
 
         holder.timeTx.text = " " + itemData?.publishedAt?.substring(0,10) + " "
         holder.newsTitleTx.text = itemData?.title
@@ -61,7 +65,10 @@ class HomeRecyclerViewAdapter(private val context: Context, private val list: Mu
             holder.favoriteImgButton.setImageResource(R.drawable.ic_favorites)
 
         try {
-            holder.itemView.tag = itemData
+            holder.itemView.tag = position
+            holder.favoriteImgButton.tag = itemData
+            holder.shareImgButton.tag = context.getString(R.string.sharingMessage) + itemData?.url +
+                    "\n\nSimple " + context.getString(R.string.news)
             holder.itemView.setOnClickListener(onClickListener)
             holder.favoriteImgButton.setOnClickListener(onClickListener)
             holder.shareImgButton.setOnClickListener(onClickListener)

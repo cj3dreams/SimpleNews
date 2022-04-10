@@ -5,5 +5,11 @@
     <string name="others">Others</string>
     <string name="news">News</string>
     <string name="ifDescIsEmptyOrNull">For more information, click on the news</string>
+    <string name="errorInternet">Check Internet Connection</string>
+    <string name="errorApiToken">Api Token Error</string>
+    <string name="noData">No data found.\nTry to refresh\nor check connection</string>
+    <string name="oopsNoFavs">Oops, it looks like \nyou have no favorites yet.\nAdd some and let\'s go!</string>
+    <string name="sharingMessage">Look, interesting news!\n</string>
+    <string name="shareString">Share with news in:</string>
 
 </resources>

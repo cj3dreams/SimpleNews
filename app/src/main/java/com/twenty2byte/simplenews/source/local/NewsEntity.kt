@@ -6,7 +6,7 @@ import androidx.room.Index
 import androidx.room.PrimaryKey
 
 @Entity(tableName = "news", indices =
-    [Index(value = ["title", "description", "isFavorite"], unique = true)] )
+    [Index(value = ["title", "url"], unique = true)] )
 
 data class NewsEntity(
     @PrimaryKey(autoGenerate = true)

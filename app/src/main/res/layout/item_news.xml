@@ -57,8 +57,7 @@
                 android:background="#FFF1D8A0"
                 android:elevation="10dp"
                 android:gravity="center"
-                android:text="@string/news"
-                android:textStyle="" />
+                android:text="@string/news" />
 
             <TextView
                 android:id="@+id/itemBrandNameImageViewTx"
@@ -68,10 +67,10 @@
                 android:layout_marginTop="15dp"
                 android:background="#FFF1D8A0"
                 android:elevation="10dp"
-                android:gravity="center"
-                android:maxLines="1"
-                android:maxLength="30"
                 android:ellipsize="end"
+                android:gravity="center"
+                android:maxLength="35"
+                android:maxLines="1"
                 android:text="@string/news"
                 android:textStyle="bold" />
 
@@ -127,31 +126,33 @@
             android:textSize="18sp" />
 
         <ImageView
-            android:layout_below="@+id/itemNewsDescTx"
             android:id="@+id/itemFavoriteBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/itemNewsDescTx"
             android:layout_marginVertical="16dp"
             android:layout_toStartOf="@+id/itemShareBtn"
             android:clickable="true"
             android:contentDescription="@null"
             android:focusable="true"
             android:foreground="?android:selectableItemBackgroundBorderless"
+            android:padding="3.5dp"
             android:src="@drawable/ic_favorites_empty" />
 
         <ImageView
-            android:layout_alignParentEnd="true"
-            android:layout_below="@+id/itemNewsDescTx"
             android:id="@+id/itemShareBtn"
-            android:layout_width="24dp"
-            android:layout_height="24dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_below="@+id/itemNewsDescTx"
+            android:layout_alignParentEnd="true"
             android:layout_marginVertical="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="22dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginEnd="22.5dp"
             android:clickable="true"
             android:contentDescription="@null"
             android:focusable="true"
             android:foreground="?android:selectableItemBackgroundBorderless"
+            android:padding="3.5dp"
             android:src="@drawable/ic_share" />
 
     </RelativeLayout>

@@ -6,21 +6,27 @@
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/bottom_nav_icon_color_selector.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_favorites.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_favorites_empty.xml" value="0.21875" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_favorites_shimmer.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_home.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_launcher_foreground.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_news_colored.xml" value="0.2153846153846154" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_others.xml" value="0.21481481481481482" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_share.xml" value="0.21875" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_share_shimmer.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_time.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/ic_web.xml" value="0.21875" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/shadow_for_time_imageview.xml" value="0.21875" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/drawable/shadow_for_time_shimmer.xml" value="0.21875" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/font/bebasneue_bold_t.xml" value="0.22923076923076924" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/font/fonts.xml" value="0.22923076923076924" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout-v23/activity_main.xml" value="0.20260416666666667" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/activity_main.xml" value="0.2" />
-        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_favorites.xml" value="0.20260416666666667" />
-        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_home.xml" value="0.25" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_favorites.xml" value="0.18" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_home.xml" value="0.22" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_others.xml" value="0.18854166666666666" />
-        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/item_news.xml" value="0.21635094715852443" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/fragment_web_view.xml" value="0.20260416666666667" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/item_news.xml" value="0.16" />
+        <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/layout/item_shimmer.xml" value="0.25" />
         <entry key="..\:/X-Lab/zAndroidStudio/SimpleNews/app/src/main/res/menu/nav_menu.xml" value="0.20260416666666667" />
       </map>
     </option>

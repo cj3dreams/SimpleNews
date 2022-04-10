@@ -14,5 +14,6 @@ class RoomRepository(context: Context) {
     suspend fun delete(newsEntity: NewsEntity) = newsDao?.deleteNews(newsEntity)
     suspend fun update(newsEntity: NewsEntity) = newsDao?.updateNews(newsEntity)
     suspend fun deleteAll() = newsDao?.deleteAllNews()
+    suspend fun insertNewsList(newsEntityList: MutableList<NewsEntity>) = newsDao?.insertNewsList(newsEntityList)
 
 }

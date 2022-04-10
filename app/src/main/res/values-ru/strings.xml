@@ -6,4 +6,10 @@
     <string name="others">Прочее</string>
     <string name="news">Новости</string>
     <string name="ifDescIsEmptyOrNull">Для получения более подробной информации, нажмите на новость.</string>
+    <string name="errorInternet">Проверьте подключение к Интернету</string>
+    <string name="errorApiToken">Ошибка API токена</string>
+    <string name="noData">Данные не найдены.\nПопробуйте обновить или\nпроверить подключение</string>
+    <string name="oopsNoFavs">Ой, кажется у вас еще нет\n избранных новостей.\n Добавьте несколько и вперед!</string>
+    <string name="sharingMessage">Посмотри, интересная новость!\n</string>
+    <string name="shareString">Поделиться новостью в:</string>
 </resources>
