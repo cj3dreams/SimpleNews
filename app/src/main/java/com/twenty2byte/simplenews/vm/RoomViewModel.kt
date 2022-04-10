@@ -13,15 +13,17 @@ class RoomViewModel(private val repository: RoomRepository): ViewModel() {
     val favoriteList = mutableListOf<NewsEntity?>()
 
 
-    fun setNewsToDb(newsResponse: MutableList<Article?>) = viewModelScope.launch(Dispatchers.IO) {
-        val list = mutableListOf<NewsEntity>()
+    fun setNewsToDb(newsResponse: MutableList<Article?>) {
+        viewModelScope.launch(Dispatchers.IO) {
+            val list = mutableListOf<NewsEntity>()
             newsResponse.forEach {
                 list.add(NewsEntity(0, it?.author.toString(),
                     it?.content, it?.description, it?.publishedAt, it?.source?.name, it?.title, it?.url,
                     it?.urlToImage, 0, "ru"))
+            }
+            repository.insertNewsList(list)
         }
-        repository.insertNewsList(list)
-        getAllNewsFromDb()
+            getAllNewsFromDb()
     }
 
     fun getAllNewsObservers(): MutableLiveData<MutableList<NewsEntity?>>{
@@ -45,23 +47,31 @@ class RoomViewModel(private val repository: RoomRepository): ViewModel() {
 
     private fun getAllNewsFromDb() {
          val list = repository.getAllNews()
-        newsData.postValue(list!!)
+        newsData.value = list!!
     }
 
-    private fun insertNews(newsEntity: NewsEntity) = viewModelScope.launch {
-        repository?.insert(newsEntity)
+    private fun insertNews(newsEntity: NewsEntity) {
+        viewModelScope.launch {
+            repository.insert(newsEntity)
+        }
         getAllNewsFromDb()
     }
-    fun deleteNews(newsEntity: NewsEntity) = viewModelScope.launch {
-        repository?.delete(newsEntity)
+    fun deleteNews(newsEntity: NewsEntity) {
+        viewModelScope.launch {
+            repository.delete(newsEntity)
+        }
         getAllNewsFromDb()
     }
-    fun updateNews(newsEntity: NewsEntity) = viewModelScope.launch {
-        repository?.update(newsEntity)
-        getAllNewsFromDb()
+    fun updateNews(newsEntity: NewsEntity) {
+        viewModelScope.launch {
+            repository.update(newsEntity)
+            getAllNewsFromDb()
+        }
     }
-    fun deleteAll() = viewModelScope.launch {
-        repository?.deleteAll()
+    fun deleteAll() {
+        viewModelScope.launch {
+            repository.deleteAll()
+        }
         getAllNewsFromDb()
     }
 }

@@ -7,8 +7,6 @@
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
-        android:usesCleartextTraffic="true"
-        android:networkSecurityConfig="@xml/network_security_config"
         android:allowBackup="true"
         android:hardwareAccelerated="true"
         android:icon="@mipmap/ic_launcher"
@@ -17,7 +15,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimpleNews">
 
-        <uses-library android:name="org.apache.http.legacy" android:required="false"/>
         <activity
             android:name=".view.ui.MainActivity"
             android:exported="true">

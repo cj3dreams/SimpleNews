@@ -44,8 +44,6 @@ class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListen
             .setCustomAnimations(R.anim.blink,0)
             .replace(R.id.frgView, fragment).commit()
 
-        onBackPressed()
-
         return true
     }
 }
