@@ -79,7 +79,19 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
                     .setText(tag)
                     .startChooser()
             }
+            R.id.itemNewsClick -> {
+                val tag = v.tag as String
+                val webView = WebViewFragment.getUrl(tag)
+                onDestroy()
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.setCustomAnimations(R.anim.blink, 0)?.replace(R.id.frgView, webView)
+                    ?.addToBackStack("BackFromWebFav")?.commit()
+            }
         }
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
     }
 
     override fun onRefresh() {

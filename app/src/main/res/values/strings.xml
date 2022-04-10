@@ -11,5 +11,8 @@
     <string name="oopsNoFavs">Oops, it looks like \nyou have no favorites yet.\nAdd some and let\'s go!</string>
     <string name="sharingMessage">Look, interesting news!\n</string>
     <string name="shareString">Share with news in:</string>
+    <string name="pageLoadStarted">Page loading is started . . .</string>
+    <string name="loadingPage">"Loading page "</string>
+    <string name="cj3dreams">by cj3dreams</string>
 
 </resources>

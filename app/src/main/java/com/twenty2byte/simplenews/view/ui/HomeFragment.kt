@@ -48,6 +48,7 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        viewModel.getNews(Locale.getDefault().toString(), "3d1ea4a2c49e477fafc161982d26ea57")
 
         val view = layoutInflater.inflate(R.layout.fragment_home, container, false)
         shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container)
@@ -64,7 +65,6 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        viewModel.getNews(Locale.getDefault().toString(), "3d1ea4a2c49e477fafc161982d26ea57")
         viewModel.newsResponse.observe(viewLifecycleOwner, { resource ->
             when (resource){
                 is Resource.Success -> {
@@ -81,10 +81,11 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
                 }
                 is Resource.Failure -> {
                     if (!roomViewModel.isDbEmpty()) {
-                        recyclerView.visibility = View.VISIBLE
-
-                        shimmerFrameLayout.stopShimmer()
-                        shimmerFrameLayout.visibility = View.GONE
+                        Handler().postDelayed( {
+                            recyclerView.visibility = View.VISIBLE
+                            shimmerFrameLayout.stopShimmer()
+                            shimmerFrameLayout.visibility = View.GONE
+                        }, 500)
                         roomViewModel.getAllNewsObservers().observe(viewLifecycleOwner, {
                             adapter = NewsRecyclerViewAdapter(requireContext(), it, this)
                             recyclerView.adapter = adapter
@@ -112,6 +113,13 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
                 ShareCompat.IntentBuilder(requireContext()).setType("text/plain")
                     .setChooserTitle(context?.getString(R.string.shareString)).setText(tag)
                     .startChooser()
+            }
+            R.id.itemNewsClick -> {
+                val tag = v.tag as String
+                val webView = WebViewFragment.getUrl(tag)
+                activity?.supportFragmentManager?.beginTransaction()
+                    ?.setCustomAnimations(R.anim.blink, 0)?.replace(R.id.frgView, webView)
+                    ?.addToBackStack("BackFromWeb")?.commit()
             }
         }
     }

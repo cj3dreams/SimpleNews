@@ -5,10 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.OthersFragment">
 
+    <ImageView
+        android:id="@+id/newsInfo"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="25dp"/>
     <TextView
+        android:textSize="16sp"
+        android:fontFamily="@font/bebasneue_bold_t"
+        android:layout_marginTop="-25dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/newsInfo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/others" />
+        android:text="@string/cj3dreams"
+        android:textColor="#256691"/>
 
 </RelativeLayout>

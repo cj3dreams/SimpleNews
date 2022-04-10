@@ -14,16 +14,18 @@
         android:elevation="5dp"
         android:minHeight="83dp">
 
-        <Button
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginEnd="16dp"
-            android:background="?attr/homeAsUpIndicator"
+        <ImageView
+            android:visibility="gone"
             android:clickable="true"
             android:focusable="true"
             android:foreground="?android:selectableItemBackgroundBorderless"
-            android:gravity="center"
-            android:visibility="gone" />
+            android:backgroundTint="@color/black"
+            android:background="?attr/homeAsUpIndicator"
+            android:id="@+id/backBtn"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginEnd="13dp"
+            android:gravity="center" />
 
         <RelativeLayout
             android:layout_width="wrap_content"

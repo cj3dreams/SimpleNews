@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.cardview.widget.CardView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
@@ -20,6 +21,7 @@ class NewsRecyclerViewAdapter(private val context: Context, private val list: Mu
     private val onClickListener: View.OnClickListener): RecyclerView.Adapter<NewsRecyclerViewAdapter.HomeViewHolder>() {
 
     class HomeViewHolder(view: View) : RecyclerView.ViewHolder(view) {
+        var itemNewsClick:CardView = view.findViewById(R.id.itemNewsClick)
         var img:ImageView = view.findViewById(R.id.itemImg)
         var brandNameOnImageViewTx:TextView = view.findViewById(R.id.itemBrandNameImageViewTx)
         var timeTx:TextView = view.findViewById(R.id.itemTimeTx)
@@ -65,13 +67,13 @@ class NewsRecyclerViewAdapter(private val context: Context, private val list: Mu
             holder.favoriteImgButton.setImageResource(R.drawable.ic_favorites)
 
         try {
-            holder.itemView.tag = position
             holder.favoriteImgButton.tag = itemData
             holder.shareImgButton.tag = context.getString(R.string.sharingMessage) + itemData?.url +
                     "\n\nSimple " + context.getString(R.string.news)
-            holder.itemView.setOnClickListener(onClickListener)
+            holder.itemNewsClick.tag = itemData?.url
             holder.favoriteImgButton.setOnClickListener(onClickListener)
             holder.shareImgButton.setOnClickListener(onClickListener)
+            holder.itemNewsClick.setOnClickListener(onClickListener)
 
         } catch (ex: Exception) {
             ex.message?.let {

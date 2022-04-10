@@ -7,14 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import com.twenty2byte.simplenews.R
 
+
 class OthersFragment : Fragment() {
+
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
         val view = layoutInflater.inflate(R.layout.fragment_others, container, false)
 
+
         return view
     }
-
 }

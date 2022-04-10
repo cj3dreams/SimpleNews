@@ -5,9 +5,20 @@
     android:layout_height="match_parent"
     tools:context=".view.ui.WebViewFragment">
 
-    <TextView
+    <WebView
+        android:id="@+id/webView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="" />
+        android:layout_height="match_parent" />
+
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal|bottom"
+        android:layout_marginBottom="50dp"
+        android:indeterminate="true"
+        android:indeterminateTint="#D62727"
+        android:indeterminateTintMode="src_atop"
+        android:id="@+id/webViewLoading"/>
 
 </FrameLayout>

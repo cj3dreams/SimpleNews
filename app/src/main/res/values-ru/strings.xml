@@ -12,4 +12,7 @@
     <string name="oopsNoFavs">Ой, кажется у вас еще нет\n избранных новостей.\n Добавьте несколько и вперед!</string>
     <string name="sharingMessage">Посмотри, интересная новость!\n</string>
     <string name="shareString">Поделиться новостью в:</string>
+    <string name="pageLoadStarted">Начата загрузка страницы . . .</string>
+    <string name="loadingPage">"Загрузка страницы "</string>
+    <string name="cj3dreams">от cj3dreams</string>
 </resources>
