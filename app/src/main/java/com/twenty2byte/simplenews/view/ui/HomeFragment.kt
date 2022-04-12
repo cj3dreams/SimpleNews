@@ -37,7 +37,6 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
     private lateinit var recyclerView: RecyclerView
     private lateinit var roomViewModel: RoomViewModel
     private lateinit var viewModel: NewsViewModel
-
     private val factory = NewsViewModelFactory(NewsRepository(RemoteDataSource().buildApi(RestApiRequests::class.java)))
 
     override fun onAttach(context: Context) {
@@ -49,17 +48,23 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        viewModel.getNews(Locale.getDefault().toString(), "3d1ea4a2c49e477fafc161982d26ea57")
+        val sharedPreferencesApiKey = context?.getSharedPreferences("ApiKey", Context.MODE_PRIVATE)
+        val apiKey = sharedPreferencesApiKey?.getString("ApiKey", "").toString()
+        val getLang = Locale.getDefault().toString()
+        val lang = if(getLang == "ru_RU" || getLang == "ru") "ru" else "us"
+
+        viewModel.getNews(lang, apiKey)
 
         val view = layoutInflater.inflate(R.layout.fragment_home, container, false)
+
         shimmerFrameLayout = view.findViewById(R.id.shimmer_view_container)
         recyclerView = view.findViewById(R.id.recyclerView)
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
         noDataRelativeLayout = view.findViewById(R.id.noDataRel)
         swipeRefreshLayout = view.findViewById(R.id.swipe_container_home)
         swipeRefreshLayout.setOnRefreshListener(this)
-        swipeRefreshLayout.setColorSchemeResources(R.color.home_color, R.color.favorite_color,
-            R.color.teal_700)
+        swipeRefreshLayout.setColorSchemeResources(R.color.home_color,
+            R.color.favorite_color, R.color.teal_700)
 
         return view
     }
@@ -92,12 +97,13 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
                             recyclerView.adapter = adapter
                         })
                         Toast.makeText(requireContext(), if (resource.isNetworkError == true)
-                            context?.getString(R.string.showingFromCache) else context?.getString(R.string.errorApiToken),
+                            context?.getString(R.string.showingFromCache) else context?.getString(R.string.errorApiKey)
+                                + resource.errorCode.toString(),
                             Toast.LENGTH_SHORT).show()
                     }
                     else {
                         Toast.makeText(requireContext(), if (resource.isNetworkError == true)
-                            context?.getString(R.string.errorInternet) else context?.getString(R.string.errorApiToken),
+                            context?.getString(R.string.errorInternet) else context?.getString(R.string.errorApiKey) + resource.errorCode.toString(),
                             Toast.LENGTH_SHORT).show()
                         shimmerFrameLayout.stopShimmer()
                         shimmerFrameLayout.visibility = View.GONE
@@ -118,8 +124,7 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
             R.id.itemShareBtn -> {
                 val tag = v.tag as String
                 ShareCompat.IntentBuilder(requireContext()).setType("text/plain")
-                    .setChooserTitle(context?.getString(R.string.shareString)).setText(tag)
-                    .startChooser()
+                    .setChooserTitle(context?.getString(R.string.shareString)).setText(tag).startChooser()
             }
             R.id.itemNewsClick -> {
                 val tag = v.tag as String

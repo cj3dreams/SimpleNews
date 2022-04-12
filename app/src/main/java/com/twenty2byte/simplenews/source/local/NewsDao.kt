@@ -9,13 +9,7 @@ interface NewsDao {
     fun getAllNews(): MutableList<NewsEntity?>
 
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    suspend fun insertNews(newsEntity: NewsEntity?)
-
-    @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun insertNewsList(newsEntity: MutableList<NewsEntity>?)
-
-    @Delete
-    suspend fun deleteNews(newsEntity: NewsEntity?)
 
     @Query("DELETE FROM news")
     suspend fun deleteAllNews()

@@ -2,7 +2,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.twenty2byte.simplenews">
 
-
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
 
@@ -16,6 +15,8 @@
         android:theme="@style/splashScreenTheme">
 
         <activity
+            android:configChanges = "orientation"
+            android:screenOrientation = "portrait"
             android:name=".view.ui.MainActivity"
             android:exported="true">
             <intent-filter>

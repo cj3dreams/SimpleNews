@@ -1,27 +1,105 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".view.ui.OthersFragment">
-
+<RelativeLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
     <ImageView
-        android:id="@+id/newsInfo"
+        android:id="@+id/newsInfoAppLogo"
         android:layout_width="170dp"
         android:layout_height="170dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="15dp"
         android:src="@drawable/ic_launcher_foreground"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="25dp"/>
+        android:contentDescription="@null" />
+
     <TextView
-        android:textSize="16sp"
-        android:fontFamily="@font/bebasneue_bold_t"
-        android:layout_marginTop="-25dp"
-        android:layout_centerHorizontal="true"
-        android:layout_below="@+id/newsInfo"
+        android:id="@+id/newsInfoTx"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@+id/newsInfoAppLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="-25dp"
+        android:fontFamily="@font/bebasneue_bold_t"
         android:gravity="center"
-        android:text="@string/cj3dreams"
-        android:textColor="#256691"/>
+        android:textColor="#256691"
+        android:textSize="16sp" />
+
+    <Spinner
+        android:id="@+id/spinnerOfLanguages"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_below="@id/newsInfoAppLogo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="-8dp" />
+
+    <TextView
+        android:id="@+id/noteForChangingLangTx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/spinnerOfLanguages"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="-6dp"
+        android:gravity="start"
+        android:text="@string/ifYouChangeLang"
+        android:textSize="12sp"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textOfApiTx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/noteForChangingLangTx"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="20dp"
+        android:text="@string/toChangeApiKey"
+        android:textSize="16sp" />
+
+    <RelativeLayout
+
+        android:id="@+id/relativeOfApi"
+        android:layout_below="@id/textOfApiTx"
+        android:layout_marginHorizontal="75dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:clickable="true"
+            android:focusable="true"
+            android:id="@+id/isApiCorrectImg"
+            android:layout_centerInParent="true"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/ic_last"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:contentDescription="@null" />
+
+        <AutoCompleteTextView
+            android:id="@+id/apiKeyEditText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toStartOf="@+id/isApiCorrectImg"
+            android:drawableStart="@drawable/ic_api"
+            android:hint="@string/typeNewApiKey"
+            android:inputType="textShortMessage"
+            android:textSize="12sp" />
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/noteFoApiChangeTx"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/relativeOfApi"
+        android:layout_marginHorizontal="75dp"
+        android:layout_marginTop="-5dp"
+        android:gravity="start"
+        android:text="@string/noteOfApiKey"
+        android:textSize="12sp"
+        android:textStyle="italic" />
 
 </RelativeLayout>
+</androidx.core.widget.NestedScrollView>

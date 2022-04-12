@@ -47,19 +47,6 @@ class RoomViewModel(private val repository: RoomRepository): ViewModel() {
          val list = repository.getAllNews()
         newsData.value = list!!
     }
-
-    private fun insertNews(newsEntity: NewsEntity) {
-        viewModelScope.launch {
-            repository.insert(newsEntity)
-        }
-        getAllNewsFromDb()
-    }
-    fun deleteNews(newsEntity: NewsEntity) {
-        viewModelScope.launch {
-            repository.delete(newsEntity)
-        }
-        getAllNewsFromDb()
-    }
     fun updateNews(newsEntity: NewsEntity) {
         viewModelScope.launch {
             repository.update(newsEntity)

@@ -1,6 +1,8 @@
 
 package com.twenty2byte.simplenews.view.ui
 
+import android.content.Context
+import android.content.SharedPreferences
 import android.os.Build
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -14,17 +16,28 @@ import java.util.*
 
 class MainActivity : AppCompatActivity(), NavigationBarView.OnItemSelectedListener {
     private lateinit var bottomNavigationView: BottomNavigationView
+    private lateinit var sharedPreferencesLang: SharedPreferences
+    private lateinit var sharedPreferencesApiKey:SharedPreferences
     lateinit var backButton: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val config = resources.configuration
-        val locale = Locale("ru")
-        Locale.setDefault(locale)
-        config.setLocale(locale)
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
-            createConfigurationContext(config)
-        resources.updateConfiguration(config, resources.displayMetrics)
+
+        sharedPreferencesLang = getSharedPreferences("Language", Context.MODE_PRIVATE)
+        sharedPreferencesApiKey = getSharedPreferences("ApiKey", Context.MODE_PRIVATE)
+        if (!sharedPreferencesApiKey.contains("ApiKey"))
+            sharedPreferencesApiKey.edit().putString("ApiKey", "b50553f762124ec8809bb9af138e4c38").apply()
+        if (sharedPreferencesLang.contains("Language")){
+            val get = sharedPreferencesLang.getString("Language", "").toString()
+            val config = resources.configuration
+            val locale = Locale(get)
+            Locale.setDefault(locale)
+            config.setLocale(locale)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                createConfigurationContext(config)
+            resources.updateConfiguration(config, resources.displayMetrics)
+        }
+
         setTheme(R.style.Theme_SimpleNews)
         setContentView(R.layout.activity_main)
 

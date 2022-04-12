@@ -35,6 +35,7 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
+
         val view = layoutInflater.inflate(R.layout.fragment_favorites, container, false)
 
         recyclerView = view.findViewById(R.id.recyclerViewFav)
@@ -42,8 +43,8 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
         oopsNoFavoritesYet = view.findViewById(R.id.noDataRelFav)
         swipeRefreshLayout = view.findViewById(R.id.swipe_container_favorite)
         swipeRefreshLayout.setOnRefreshListener(this)
-        swipeRefreshLayout.setColorSchemeResources(R.color.home_color, R.color.favorite_color,
-            R.color.teal_700)
+        swipeRefreshLayout.setColorSchemeResources(R.color.home_color,
+            R.color.favorite_color, R.color.teal_700)
 
         return view
     }
@@ -58,7 +59,6 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
                 oopsNoFavoritesYet.visibility = View.VISIBLE
             }
         })
-
     }
 
     override fun onClick(v: View?) {
@@ -71,16 +71,14 @@ class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.O
             R.id.itemShareBtn -> {
                 val tag = v.tag as String
                 ShareCompat.IntentBuilder(requireContext()).setType("text/plain")
-                    .setChooserTitle(context?.getString(R.string.shareString))
-                    .setText(tag)
-                    .startChooser()
+                    .setChooserTitle(context?.getString(R.string.shareString)).setText(tag).startChooser()
             }
             R.id.itemNewsClick -> {
                 val tag = v.tag as String
                 val webView = WebViewFragment.getUrl(tag)
                 activity?.supportFragmentManager?.beginTransaction()
                     ?.setCustomAnimations(R.anim.blink, 0)?.replace(R.id.frgView, webView)
-                    ?.addToBackStack("back")?.commit()
+                    ?.addToBackStack("BackFromWeb")?.commit()
             }
         }
     }

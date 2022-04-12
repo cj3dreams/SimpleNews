@@ -7,13 +7,24 @@
     <string name="news">Новости</string>
     <string name="ifDescIsEmptyOrNull">Для получения более подробной информации, нажмите на новость.</string>
     <string name="errorInternet">Проверьте подключение к Интернету</string>
-    <string name="errorApiToken">Ошибка API токена</string>
+    <string name="errorApiKey">"Ошибка API Key "</string>
     <string name="noData">Данные не найдены.\nПопробуйте обновить или\nпроверить подключение</string>
-    <string name="oopsNoFavs">Ой, кажется у вас еще нет\n избранных новостей.\n Добавьте несколько и вперед!</string>
+    <string name="oopsNoFavs">Ой, кажется у вас еще нет\n избранных новостей.\n Добавьте пару штук, вперед!</string>
     <string name="sharingMessage">Посмотри, интересная новость!\n</string>
     <string name="shareString">Поделиться новостью в:</string>
     <string name="pageLoadStarted">Начата загрузка страницы . . .</string>
     <string name="loadingPage">"Загрузка страницы "</string>
     <string name="cj3dreams">от cj3dreams</string>
     <string name="showingFromCache">Нет сети. Показывается новости из кэша.</string>
+    <string name="russian">Русский</string>
+    <string name="american">Английский</string>
+    <string name="ifYouChangeLang">При смене языка будет уничтожен весь кэш и даже избранное, это нужно для того, чтобы все получаемые новости были на вашем языке.</string>
+    <string name="typeNewApiKey">Введите новый API Key</string>
+    <string name="toChangeApiKey">Поменять API Key:</string>
+    <string name="noteOfApiKey">Получить новый API Key можно на сайте \"newsapi.org\" при регистрации. Если ваш API Key верный, он сохраняется, иначе, нет</string>
+    <string name="cj3dimensional">3Dimensional</string>
+    <string name="telegram">телеграм: @cj3dreams</string>
+    <string name="everyDayNew">Самое новое каждый день!</string>
+    <string name="ads">Здесь могла быть ваша реклама :D</string>
+    <string name="apiKeyInfoMessage">Синий это уже сохраненный API Key. Зеленый только что проверенный и сохраненный, а Красный недействительный API Key.</string>
 </resources>

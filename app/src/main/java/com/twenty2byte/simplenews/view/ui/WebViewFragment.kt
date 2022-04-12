@@ -1,6 +1,8 @@
 package com.twenty2byte.simplenews.view.ui
 
 import android.annotation.SuppressLint
+import android.content.Context
+import android.os.Build
 import android.os.Bundle
 import android.view.Gravity
 import androidx.fragment.app.Fragment
@@ -17,6 +19,7 @@ import androidx.core.view.isVisible
 import com.google.android.material.snackbar.BaseTransientBottomBar
 import com.google.android.material.snackbar.Snackbar
 import com.twenty2byte.simplenews.R
+import java.util.*
 
 
 class WebViewFragment : Fragment() {
@@ -26,6 +29,7 @@ class WebViewFragment : Fragment() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         val activity = activity as MainActivity
         activity.backButton.visibility = View.VISIBLE
     }
@@ -38,13 +42,25 @@ class WebViewFragment : Fragment() {
 
         val view = LayoutInflater.from(context).inflate(R.layout.fragment_web_view, container, false)
 
+        val activity = activity as MainActivity
+        val sharedPreferencesLang = context?.getSharedPreferences("Language", Context.MODE_PRIVATE)
+        if (sharedPreferencesLang!!.contains("Language")) {
+            val config = resources.configuration
+            val locale = Locale(sharedPreferencesLang.getString("Language","").toString())
+            Locale.setDefault(locale)
+            config.setLocale(locale)
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N)
+                activity.createConfigurationContext(config)
+            resources.updateConfiguration(config, resources.displayMetrics)
+        }
+
         progressBar = view.findViewById(R.id.webViewLoading)
         webView = view.findViewById(R.id.webView)
         if (webView.isVisible) {
             webView.webChromeClient = object : WebChromeClient() {
                 override fun onProgressChanged(view: WebView, progress: Int) {
                     when (progress) {
-                        in 1..10 -> this@WebViewFragment.view?.let { snackBar(it, requireContext().getString(R.string.pageLoadStarted)) }
+                        in 8..10 -> this@WebViewFragment.view?.let { snackBar(it, requireContext().getString(R.string.pageLoadStarted)) }
                         in 33..35 -> this@WebViewFragment.view?.let {  snackBar(it,  (requireContext().getString(R.string.loadingPage)) + "$progress%") }
                         in 55..65 -> this@WebViewFragment.view?.let {  snackBar(it,  (requireContext().getString(R.string.loadingPage)) + "$progress%") }
                         in 75..85 -> this@WebViewFragment.view?.let {  snackBar(it,  (requireContext().getString(R.string.loadingPage)) + "$progress%") }
@@ -81,7 +97,7 @@ class WebViewFragment : Fragment() {
         params.gravity = Gravity.TOP
         params.topMargin = 160
         view.layoutParams = params
-        view.background = ContextCompat.getDrawable(context!!,R.color.black)
+        view.background = ContextCompat.getDrawable(requireContext(),R.color.black)
         snackBarView.animationMode = BaseTransientBottomBar.ANIMATION_MODE_FADE
         snackBarView.show()
     }

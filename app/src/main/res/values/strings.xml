@@ -6,14 +6,26 @@
     <string name="news">News</string>
     <string name="ifDescIsEmptyOrNull">For more information, click on the news</string>
     <string name="errorInternet">Check Internet Connection</string>
-    <string name="errorApiToken">Api Token Error</string>
+    <string name="errorApiKey">"Api Key Error "</string>
     <string name="noData">No data found.\nTry to refresh\nor check connection</string>
-    <string name="oopsNoFavs">Oops, it looks like \nyou have no favorites yet.\nAdd some and let\'s go!</string>
+    <string name="oopsNoFavs">Oops, it looks like \nyou have no favorites yet.\nAdd some, let\'s go!</string>
     <string name="sharingMessage">Look, interesting news!\n</string>
     <string name="shareString">Share with news in:</string>
     <string name="pageLoadStarted">Page loading is started . . .</string>
     <string name="loadingPage">"Loading page "</string>
     <string name="cj3dreams">by cj3dreams</string>
     <string name="showingFromCache">No network. Showing news from the cache.</string>
+    <string name="russian">Russian</string>
+    <string name="american">English</string>
+    <string name="ifYouChangeLang">If you change language, all cache will be destroyed and even favorites, it needs in order all getting news were in your language.</string>
+    <string name="typeNewApiKey">Type new API Key</string>
+    <string name="toChangeApiKey">Change API Key:</string>
+    <string name="noteOfApiKey">You can get a new API Key on \"newsapi.org\" after sign up. If your typed API Key is correct, it will be saved in app, otherwise will not.</string>
+    <string name="cj3dimensional">3Dimensional</string>
+    <string name="telegram">telegram: @cj3dreams</string>
+    <string name="everyDayNew">News for every day!</string>
+    <string name="ads">Here could be your ads :D</string>
+    <string name="apiKeyInfoMessage">Blue is already saved API Key. Green is just verified and saved, but Red is invalid API Key</string>
+
 
 </resources>
