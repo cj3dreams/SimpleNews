@@ -15,16 +15,10 @@ import com.twenty2byte.simplenews.view.adapter.LocaleArrayAdapter
 import java.util.*
 import android.content.Intent
 import androidx.core.widget.addTextChangedListener
-import androidx.lifecycle.ViewModelProvider
-import com.twenty2byte.simplenews.base.NewsViewModelFactory
-import com.twenty2byte.simplenews.base.RoomViewModelFactory
-import com.twenty2byte.simplenews.repository.NewsRepository
-import com.twenty2byte.simplenews.repository.RoomRepository
-import com.twenty2byte.simplenews.source.remote.RemoteDataSource
 import com.twenty2byte.simplenews.source.remote.Resource
-import com.twenty2byte.simplenews.source.remote.RestApiRequests
 import com.twenty2byte.simplenews.vm.NewsViewModel
 import com.twenty2byte.simplenews.vm.RoomViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class OthersFragment : Fragment() {
     private lateinit var apiKeyEditText: AutoCompleteTextView
@@ -32,16 +26,9 @@ class OthersFragment : Fragment() {
     private lateinit var logoTx: TextView
     private lateinit var spinner: Spinner
     private lateinit var isCorrectApiImg: ImageView
-    private lateinit var roomViewModel: RoomViewModel
-    private lateinit var viewModel: NewsViewModel
-    private val factory = NewsViewModelFactory(NewsRepository(RemoteDataSource().buildApi(RestApiRequests::class.java)))
+    private val roomViewModel: RoomViewModel by viewModel()
+    private val viewModel: NewsViewModel by viewModel()
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val roomFactory = RoomViewModelFactory(RoomRepository(context))
-        roomViewModel = ViewModelProvider(this, roomFactory)[RoomViewModel::class.java]
-        viewModel = ViewModelProvider(this, factory)[NewsViewModel::class.java]
-    }
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -114,7 +101,9 @@ class OthersFragment : Fragment() {
             viewModel.newsResponse.observe(viewLifecycleOwner, {
                when(it){
                     is Resource.Success -> {
+                        if(it.value.status == "ok")
                         isCorrectApiImg.setImageResource(R.drawable.ic_ok)
+                        if(isCorrectApiImg.drawable.constantState == resources.getDrawable(R.drawable.ic_ok))
                         sharedPreferencesApiKey?.edit()?.putString("ApiKey",apiKeyEditText.text.toString())?.apply()
                     }
                     is Resource.Failure -> if (it.isNetworkError == false) isCorrectApiImg.setImageResource(R.drawable.ic_error_api)

@@ -16,8 +16,6 @@ import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.facebook.shimmer.ShimmerFrameLayout
 import com.twenty2byte.simplenews.R
-import com.twenty2byte.simplenews.base.RoomViewModelFactory
-import com.twenty2byte.simplenews.base.NewsViewModelFactory
 import com.twenty2byte.simplenews.repository.NewsRepository
 import com.twenty2byte.simplenews.repository.RoomRepository
 import com.twenty2byte.simplenews.source.local.NewsEntity
@@ -27,6 +25,7 @@ import com.twenty2byte.simplenews.source.remote.RestApiRequests
 import com.twenty2byte.simplenews.view.adapter.NewsRecyclerViewAdapter
 import com.twenty2byte.simplenews.vm.NewsViewModel
 import com.twenty2byte.simplenews.vm.RoomViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
 import java.util.*
 
 class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
@@ -35,16 +34,8 @@ class HomeFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefr
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var adapter: NewsRecyclerViewAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var roomViewModel: RoomViewModel
-    private lateinit var viewModel: NewsViewModel
-    private val factory = NewsViewModelFactory(NewsRepository(RemoteDataSource().buildApi(RestApiRequests::class.java)))
-
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val roomFactory = RoomViewModelFactory(RoomRepository(context))
-        roomViewModel = ViewModelProvider(this, roomFactory)[RoomViewModel::class.java]
-        viewModel = ViewModelProvider(this, factory)[NewsViewModel::class.java]
-    }
+    private val roomViewModel: RoomViewModel by viewModel()
+    private val viewModel: NewsViewModel by viewModel()
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {

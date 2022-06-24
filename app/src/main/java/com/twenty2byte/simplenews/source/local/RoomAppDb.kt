@@ -13,12 +13,13 @@ abstract class RoomAppDb: RoomDatabase() {
     companion object{
         var INSTANCE: RoomAppDb? = null
 
+        fun getAppDb(context: Context): RoomAppDb? {
+            if (INSTANCE == null) INSTANCE = Room.databaseBuilder(context.applicationContext,
+                RoomAppDb::class.java, "NewsDb")
+                    .allowMainThreadQueries()
+                    .build()
 
-    fun getAppDb(context: Context): RoomAppDb?{
-        if (INSTANCE == null) INSTANCE = Room.databaseBuilder(context.applicationContext,
-                RoomAppDb::class.java, "NewsDb").allowMainThreadQueries().build()
-
-        return INSTANCE
-    }
+            return INSTANCE
+        }
     }
 }

@@ -2,15 +2,17 @@ package com.twenty2byte.simplenews.vm
 
 import androidx.lifecycle.*
 import com.twenty2byte.simplenews.repository.RoomRepository
+import com.twenty2byte.simplenews.source.local.NewsDao
 import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.source.remote.news.Article
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class RoomViewModel(private val repository: RoomRepository): ViewModel() {
+class RoomViewModel(newsDao: NewsDao): ViewModel() {
+
+    private val repository = RoomRepository(newsDao)
     var newsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
     var favoriteNewsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
-
 
     fun setNewsToDb(newsResponse: MutableList<Article?>) = viewModelScope.launch(Dispatchers.IO) {
             val list = mutableListOf<NewsEntity>()

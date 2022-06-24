@@ -9,29 +9,23 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.RelativeLayout
 import androidx.core.app.ShareCompat
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.swiperefreshlayout.widget.SwipeRefreshLayout
 import com.twenty2byte.simplenews.R
-import com.twenty2byte.simplenews.base.RoomViewModelFactory
-import com.twenty2byte.simplenews.repository.RoomRepository
 import com.twenty2byte.simplenews.source.local.NewsEntity
 import com.twenty2byte.simplenews.view.adapter.NewsRecyclerViewAdapter
 import com.twenty2byte.simplenews.vm.RoomViewModel
+import org.koin.androidx.viewmodel.ext.android.viewModel
+
 
 class FavoritesFragment : Fragment(), View.OnClickListener, SwipeRefreshLayout.OnRefreshListener {
     private lateinit var oopsNoFavoritesYet: RelativeLayout
     private lateinit var swipeRefreshLayout: SwipeRefreshLayout
     private lateinit var adapter: NewsRecyclerViewAdapter
     private lateinit var recyclerView: RecyclerView
-    private lateinit var roomViewModel: RoomViewModel
+    private val roomViewModel: RoomViewModel by viewModel()
 
-    override fun onAttach(context: Context) {
-        super.onAttach(context)
-        val roomFactory = RoomViewModelFactory(RoomRepository(context))
-        roomViewModel = ViewModelProvider(this, roomFactory)[RoomViewModel::class.java]
-    }
 
     override fun onCreateView(inflater: LayoutInflater,
         container: ViewGroup?, savedInstanceState: Bundle?): View? {
