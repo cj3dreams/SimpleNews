@@ -21,7 +21,6 @@ import com.google.android.material.snackbar.Snackbar
 import com.twenty2byte.simplenews.R
 import java.util.*
 
-
 class WebViewFragment : Fragment() {
     private lateinit var progressBar: ProgressBar
     private lateinit var webView: WebView

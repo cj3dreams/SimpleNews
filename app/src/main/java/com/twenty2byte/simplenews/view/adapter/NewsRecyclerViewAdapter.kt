@@ -14,8 +14,6 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.engine.DiskCacheStrategy
 import com.twenty2byte.simplenews.R
 import com.twenty2byte.simplenews.source.local.NewsEntity
-import com.twenty2byte.simplenews.view.ui.FavoritesFragment
-import com.twenty2byte.simplenews.view.ui.HomeFragment
 import java.lang.Exception
 
 class NewsRecyclerViewAdapter(private val context: Context, private val list: MutableList<NewsEntity?>,

@@ -11,8 +11,8 @@ import kotlinx.coroutines.launch
 class RoomViewModel(newsDao: NewsDao): ViewModel() {
 
     private val repository = RoomRepository(newsDao)
-    var newsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
-    var favoriteNewsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
+    private var newsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
+    private var favoriteNewsData: MutableLiveData<MutableList<NewsEntity?>> = MutableLiveData()
 
     fun setNewsToDb(newsResponse: MutableList<Article?>) = viewModelScope.launch(Dispatchers.IO) {
             val list = mutableListOf<NewsEntity>()
@@ -35,11 +35,11 @@ class RoomViewModel(newsDao: NewsDao): ViewModel() {
         return favoriteNewsData
     }
 
-    fun isDbEmpty(): Boolean = repository.getAllNews()?.size == 0
+    fun isDbEmpty(): Boolean = repository.getAllNews().size == 0
 
     private fun getFavoritesNews() = viewModelScope.launch(Dispatchers.IO) {
         val favoriteList = mutableListOf<NewsEntity?>()
-        repository.getAllNews()?.forEach {
+        repository.getAllNews().forEach {
             if (it?.isFavorite == 1) favoriteList.add(it)
         }
         favoriteNewsData.postValue(favoriteList)
@@ -47,7 +47,7 @@ class RoomViewModel(newsDao: NewsDao): ViewModel() {
 
     private fun getAllNewsFromDb() {
          val list = repository.getAllNews()
-        newsData.value = list!!
+        newsData.value = list
     }
     fun updateNews(newsEntity: NewsEntity) {
         viewModelScope.launch {
